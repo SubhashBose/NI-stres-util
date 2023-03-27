@@ -1,6 +1,7 @@
 package waste
 
 import "math/rand"
+import "time"
 
 var Buffers []*GiBObject
 var BuffersM []*MiBObject
@@ -35,5 +36,18 @@ func Memory(gibF float64) {
 		rand.Read(o.B[:])
 		BuffersM = append(BuffersM, o)
 		mib -= 1
+	}
+	for {
+		for _,v:= range(Buffers){
+			for _,v:= range(v.B) {
+				_=v
+			}
+		}
+		for _,v:= range(BuffersM){
+			for _,v:= range(v.B) {
+				_=v
+			}
+		}
+		time.Sleep(time.Hour)
 	}
 }
