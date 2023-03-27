@@ -1,0 +1,21 @@
+vendor/*
+*.lock
+.vscode
+*.exe
+
+.idea/*
+.DS_Store
+
+# CMake
+cmake-build-*/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+*.linux-amd64
+*.linux-arm64
+*_linux-amd64
+*_linux-arm64
+*_windows-amd64

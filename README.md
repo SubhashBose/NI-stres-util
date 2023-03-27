@@ -3,7 +3,9 @@
 Cross-platform system stress utility to generate controlled system load for CPU, Memory and Network bandwidth. 
 The systhentic load can be controlled by time intervals, load percents and amounts of resources to use.
 
-Available for Windows, Linux and MacOS for both x86-64, ARM64 architectures.
+Available for Windows, Linux and MacOS for both x86-64, ARM64 architectures. Many other Golang supported platforms might be supported, but need to tested for any incompatible feature. The system's max. CPU load limit `-cpu-m` option is not supported in MacOS/ARM64 platform. 
+
+This was started as a fork of NeverIdle code, but now both codes has deviated significnatly and incomptible to merge, especially after control featured for CPU and Memmory loads.
 
 ## Usage
 
