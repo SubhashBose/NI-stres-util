@@ -5,7 +5,7 @@ The systhentic load can be controlled by time intervals, load percents and amoun
 
 Available for Windows, Linux and MacOS for both x86-64, ARM64 architectures. Many other Golang supported platforms might be supported, but need to tested for any incompatible feature. The system's max. CPU load limit `-cpu-m` option is not supported in MacOS/ARM64 platform. 
 
-This was started as a fork of NeverIdle code, but now both codes has deviated significnatly and incomptible to merge, especially after control featured for CPU and Memmory loads.
+This was started as a fork of [NeverIdle](https://github.com/layou233/NeverIdle) code, but now both codes have deviated significnatly and are incomptible to merge, especially after adding control options for CPU and Memory loads.
 
 ## Usage
 
