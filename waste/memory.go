@@ -38,7 +38,7 @@ func Memory(gibF float64) {
 		mib -= 1
 	}
 	for {
-		time.Sleep(time.Minute)
+		time.Sleep(time.Hour)
 		for i,v:= range(Buffers){
 			for j,_:= range(v.B) {
 				Buffers[i].B[j]=^Buffers[i].B[j]
