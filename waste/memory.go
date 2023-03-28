@@ -41,12 +41,12 @@ func Memory(gibF float64) {
 		time.Sleep(time.Minute)
 		for _,v:= range(Buffers){
 			for _,v:= range(v.B) {
-				_=v<<2
+				v=v<<2
 			}
 		}
 		for _,v:= range(BuffersM){
 			for _,v:= range(v.B) {
-				_=v<<2
+				v=v<<2
 			}
 		}
 	}
