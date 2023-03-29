@@ -43,13 +43,11 @@ func Memory(gibF float64, MemoryRefresh bool) {
 		for i,_:= range(Buffers){
 			for j,_:= range(Buffers[i].B) {
 				Buffers[i].B[j]=^Buffers[i].B[j]
-				time.Sleep(5*time.Nanosecond)
 			}
 		}
 		for i,_:= range(BuffersM){
 			for j,_:= range(BuffersM[i].B) {
 				BuffersM[i].B[j]=^BuffersM[i].B[j]
-				time.Sleep(5*time.Nanosecond)
 			}
 		}
 	}

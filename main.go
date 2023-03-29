@@ -10,7 +10,7 @@ import (
 	"NI/waste"
 )
 
-const Version = "1.4"
+const Version = "1.5"
 
 var (
 	FlagCPU                    = flag.Duration("cpu", 0, "Interval of CPU streess to repeat. This flag is requried to emable CPU stress")
@@ -19,7 +19,7 @@ var (
 	FlagCPUcount               = flag.Int("cpu-n", runtime.NumCPU(), "Number of CPU cores to stress")
 	FlagCPUglobalmaxpercent    = flag.Float64("cpu-m", 100.0, "Maximum limit of system's total CPU load percent to maintain. If other system processes consume CPU then this will reduce CPU utilization in attempt to maintain this limit.")
 	FlagMemory                 = flag.Float64("mem", 0, "GiB of RAM memory to use")
-	FlagMemoryRefresh          = flag.Bool("mem-r", false "Enabling this refreshes the memeory every hour in attempt prevent OS from swap out the memoery and keep utilizing RAM.")
+	FlagMemoryRefresh          = flag.Bool("mem-r", false, "Enabling this refreshes the memeory every hour in attempt prevent OS from swap out the memoery and keep utilizing RAM.")
 	FlagNetwork                = flag.Duration("net", 0, "Interval for network speed test")
 	FlagNetworkConnectionCount = flag.Int("net-c", 10, "Set concurrent connections for network speed test")
 )
