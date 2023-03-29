@@ -13,12 +13,13 @@ import (
 const Version = "1.4"
 
 var (
-	FlagCPU                    = flag.Duration("cpu", 0, "Interval of CPU streess (enables CPU stress)")
-	FlagCPUduration            = flag.Duration("cpu-d", 2*time.Second, "Min. duration for each CPU stress")
+	FlagCPU                    = flag.Duration("cpu", 0, "Interval of CPU streess to repeat. This flag is requried to emable CPU stress")
+	FlagCPUduration            = flag.Duration("cpu-d", 2*time.Second, "Duration for each CPU stress cycle")
 	FlagCPUpercent             = flag.Float64("cpu-p", 100.0, "Each CPU's load percentage to generate")
 	FlagCPUcount               = flag.Int("cpu-n", runtime.NumCPU(), "Number of CPU cores to stress")
-	FlagCPUglobalmaxpercent    = flag.Float64("cpu-m", 100.0, "Max limit of system's total CPU load percent")
-	FlagMemory                 = flag.Float64("mem", 0, "GiB of memory to use")
+	FlagCPUglobalmaxpercent    = flag.Float64("cpu-m", 100.0, "Maximum limit of system's total CPU load percent to maintain. If other system processes consume CPU then this will reduce CPU utilization in attempt to maintain this limit.")
+	FlagMemory                 = flag.Float64("mem", 0, "GiB of RAM memory to use")
+	FlagMemoryRefresh          = flag.Bool("mem-r", false "Enabling this refreshes the memeory every hour in attempt prevent OS from swap out the memoery and keep utilizing RAM.")
 	FlagNetwork                = flag.Duration("net", 0, "Interval for network speed test")
 	FlagNetworkConnectionCount = flag.Int("net-c", 10, "Set concurrent connections for network speed test")
 )
@@ -34,8 +35,8 @@ func main() {
 	if *FlagMemory != 0 {
 		nothingEnabled = false
 		fmt.Println("====================")
-		fmt.Println("Starting memory consumption of", *FlagMemory, "GiB")
-		go waste.Memory(*FlagMemory)
+		fmt.Println("Starting memory consumption of", *FlagMemory, "GiB, with memory refresh set to", *FlagMemoryRefresh)
+		go waste.Memory(*FlagMemory, *FlagMemoryRefresh)
 		runtime.Gosched()
 		fmt.Println("====================")
 	}

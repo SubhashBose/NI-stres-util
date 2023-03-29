@@ -20,7 +20,7 @@ type MiBObject struct {
 	B [MiB]byte
 }
 
-func Memory(gibF float64) {
+func Memory(gibF float64, MemoryRefresh bool) {
 	gib:=int(gibF)
 	mib:=int((gibF-float64(gib))*1024)
 	Buffers = make([]*GiBObject, 0, gib)
@@ -37,16 +37,19 @@ func Memory(gibF float64) {
 		BuffersM = append(BuffersM, o)
 		mib -= 1
 	}
-	for {
+	
+	for MemoryRefresh {
 		time.Sleep(time.Hour)
-		for i,v:= range(Buffers){
-			for j,_:= range(v.B) {
+		for i,_:= range(Buffers){
+			for j,_:= range(Buffers[i].B) {
 				Buffers[i].B[j]=^Buffers[i].B[j]
+				time.Sleep(5*time.Nanosecond)
 			}
 		}
-		for i,v:= range(BuffersM){
-			for j,_:= range(v.B) {
+		for i,_:= range(BuffersM){
+			for j,_:= range(BuffersM[i].B) {
 				BuffersM[i].B[j]=^BuffersM[i].B[j]
+				time.Sleep(5*time.Nanosecond)
 			}
 		}
 	}
